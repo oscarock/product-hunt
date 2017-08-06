@@ -21,7 +21,8 @@
             <td><%= product.name %></td>
             <td><%= product.url %></td>
             <td><%= product.description %></td>
-            <td><%= link_to "Ver Producto", product_path(product), class: "btn btn-info" %></td>
+            <td><%= link_to "Ver", product_path(product), class: "btn btn-info" %></td>
+            <td><%= link_to "Editar", edit_product_path(product), class: "btn btn-info" %></td>
           </tr>
         <% end %>
       </table>
