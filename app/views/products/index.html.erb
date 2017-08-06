@@ -13,6 +13,7 @@
           <th>Nombre</th>
           <th>Url</th>
           <th>Descripcion</th>
+          <th>Acciones</th>
         </tr>
         <% @products.each do |product| %>
           <tr>
@@ -20,6 +21,7 @@
             <td><%= product.name %></td>
             <td><%= product.url %></td>
             <td><%= product.description %></td>
+            <td><%= link_to "Ver Producto", product_path(product), class: "btn btn-info" %></td>
           </tr>
         <% end %>
       </table>
