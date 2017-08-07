@@ -1,6 +1,8 @@
 class SessionsController < ApplicationController
-  def new
+  before_action :private_access, only: [:destroy]
+  before_action :private_access, except: [:destroy]
 
+  def new
   end
 
   def create
