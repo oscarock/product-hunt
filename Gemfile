@@ -5,7 +5,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-
+ruby "2.4.0" #agregarlo para q heroku reconosca si no coloca uno por defecto
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.3'
 
@@ -58,6 +58,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 
 group :production do
-  gem 'rails_12factor'
-  gem 'pg'
+  gem 'pg', '~> 0.18'
 end
