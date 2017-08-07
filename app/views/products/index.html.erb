@@ -21,7 +21,10 @@
             <td><%= link_to product.name, product_path(product) %></td>
             <td><%= product.url %></td>
             <td><%= product.description %></td>
-            <td><%= link_to "Editar", edit_product_path(product), class: "btn btn-info" %></td>
+            <td>
+              <%= link_to "Editar", edit_product_path(product), class: "btn btn-info" %>
+              <%= link_to "Eliminar", product, method: :delete, data: {confirm: "¿ Estas Seguro de eliminar el prpoducto #{product.name} ?"}, class: "btn btn-danger" %>
+            </td>
           </tr>
         <% end %>
       </table>
