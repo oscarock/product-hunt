@@ -3,7 +3,9 @@
     <div class="col-sm-12">
       <h1><%= @product.name %></h1>
       <p><%= @product.description %></p>
-      <a href="<%= @product.url %>" target="_blank">¡Obtenlo!</a>
+      <a href="<%= @product.url %>" target="_blank">¡Obtenlo!</a><br>
+      <br>
+       <%= link_to "Editar Producto", edit_product_path(@product), class: "btn btn-info" %>
     </div>
   </div>
 </div>
