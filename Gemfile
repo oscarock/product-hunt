@@ -33,6 +33,8 @@ gem 'bcrypt', '~> 3.1.7'
 #use gravatar
 gem 'gravatar-ultimate'
 gem 'xmlrpc'
+#use annotate
+gem 'annotate'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
