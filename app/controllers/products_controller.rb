@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :private_access, except: [:index, :show ]
+  before_action :private_access, except: [:index, :show]
 
   def index
     @products = Product.all
@@ -10,12 +10,13 @@ class ProductsController < ApplicationController
   end
 
   def create
-      @product = Product.new(product_params)
-      if @product.save
-        redirect_to products_path, notice: "Producto Creado con Exito"
-      else
-        render :new
-      end
+    @product = Product.new(product_params)
+    @product.user = current_user
+    if @product.save
+      redirect_to products_path, notice: "El producto fue publicado con éxito"
+    else
+      render :new
+    end
   end
 
   def show
@@ -29,7 +30,7 @@ class ProductsController < ApplicationController
   def update
     product = Product.find(params[:id])
     if product.update(product_params)
-      redirect_to products_path, notice: "Producto Editado con exito"
+      redirect_to products_path, notice: "El producto ha sido modificado con éxito"
     else
       render :edit
     end
@@ -39,11 +40,11 @@ class ProductsController < ApplicationController
     product = Product.find(params[:id])
     product.destroy
 
-    redirect_to products_path, notice: "Producto Eliminado con exito"
+    redirect_to products_path, notice: "El producto fue eliminado con éxito"
   end
 
   private
-    def product_params()
-      params.require(:product).permit(:name, :url, :description)
+    def product_params
+      params.require(:product).permit(:name, :url, :description, :image)
     end
 end
